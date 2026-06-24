@@ -7,12 +7,22 @@ import { NewPatientPage } from './pages/NewPatientPage'
 import { OperatorDashboard } from './pages/OperatorDashboard'
 import { OperatorLogin } from './pages/OperatorLogin'
 import { ProjectPage } from './pages/ProjectPage'
-import { navigate } from './lib/navigation'
+import { getCurrentPath, navigate, toAppUrl } from './lib/navigation'
 
 function usePathname() {
-  const [path, setPath] = useState(window.location.pathname)
-  useEffect(() => { const sync = () => setPath(window.location.pathname); window.addEventListener('popstate', sync); return () => window.removeEventListener('popstate', sync) }, [])
-  return path.replace(/\/$/, '') || '/'
+  const [path, setPath] = useState(getCurrentPath)
+  useEffect(() => {
+    const sync = () => setPath(getCurrentPath())
+    window.addEventListener('popstate', sync)
+    window.addEventListener('hashchange', sync)
+    window.addEventListener('app:navigate', sync)
+    return () => {
+      window.removeEventListener('popstate', sync)
+      window.removeEventListener('hashchange', sync)
+      window.removeEventListener('app:navigate', sync)
+    }
+  }, [])
+  return path
 }
 
 export default function App() {
@@ -31,6 +41,6 @@ export default function App() {
   else if (path === '/login') page = <OperatorLogin />
   else if (path === '/operator/new') page = isOperatorLoggedIn ? <NewPatientPage /> : null
   else if (path === '/operator') page = isOperatorLoggedIn ? <OperatorDashboard /> : null
-  else page = <section className="container-page py-24 text-center"><p className="eyebrow">Errore 404</p><h1 className="mt-3 text-4xl font-bold">Pagina non trovata</h1><a className="btn-primary mt-7" href="/">Torna alla home</a></section>
+  else page = <section className="container-page py-24 text-center"><p className="eyebrow">Errore 404</p><h1 className="mt-3 text-4xl font-bold">Pagina non trovata</h1><a className="btn-primary mt-7" href={toAppUrl('/')}>Torna alla home</a></section>
   return <AppShell currentPath={path}>{page}</AppShell>
 }

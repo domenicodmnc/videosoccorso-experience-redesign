@@ -39,3 +39,13 @@ Il progetto include `vercel.json` con il fallback SPA necessario per aprire dire
 5. Avvia il deploy.
 
 Non sono necessarie variabili d’ambiente: l’MVP usa soltanto dati demo e `localStorage`.
+
+## Deploy su GitHub Pages
+
+Il progetto include anche un workflow GitHub Actions dedicato a GitHub Pages. La build usa il percorso base della repository e il routing tramite hash, così tutte le aree restano raggiungibili anche dopo un aggiornamento della pagina.
+
+1. In GitHub apri **Settings → Pages**.
+2. In **Build and deployment**, seleziona **GitHub Actions** come sorgente.
+3. Esegui il workflow **Deploy to GitHub Pages** oppure pubblica un nuovo commit su `main`.
+
+Il sito sarà disponibile su `https://domenicodmnc.github.io/videosoccorso-experience-redesign/`.
