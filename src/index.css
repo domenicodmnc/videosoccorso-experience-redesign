@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { @apply border-slate-200; }
+  html { @apply scroll-smooth bg-mist; }
+  body { @apply m-0 min-w-[320px] bg-mist font-sans text-ink antialiased; }
+  button, a, input, select, textarea { @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2; }
+}
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
+  .card { @apply rounded-2xl border border-slate-200/80 bg-white shadow-card; }
+  .btn-primary { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-teal-700 px-5 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-px hover:bg-teal-800 hover:shadow-md active:translate-y-0 active:scale-[.98]; }
+  .btn-secondary { @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-3 font-semibold text-ink shadow-sm transition hover:-translate-y-px hover:border-teal-400 hover:bg-teal-50 active:translate-y-0; }
+  .field { @apply min-h-12 w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-ink placeholder:text-slate-400 transition focus:border-teal-600 focus:ring-2 focus:ring-teal-100; }
+  .label { @apply mb-2 block text-sm font-semibold text-slate-700; }
+  .eyebrow { @apply text-sm font-bold uppercase tracking-[0.18em] text-teal-700; }
+}
