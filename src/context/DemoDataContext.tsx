@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from '
 import { DEMO_PATIENTS } from '../lib/demoData'
 import type { NewPatientInput, Patient, PatientStatus } from '../types'
 
-const STORAGE_KEY = 'videosoccorso-demo-patients-v3'
+const STORAGE_KEY = 'careflow-demo-patients-v1'
 
 interface DemoDataContextValue {
   patients: Patient[]
@@ -35,7 +35,7 @@ export function DemoDataProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const addPatient = (input: NewPatientInput) => {
-    const ticketCode = `VS-${Math.floor(1000 + Math.random() * 9000)}`
+    const ticketCode = `CF-${Math.floor(1000 + Math.random() * 9000)}`
     const patient: Patient = {
       ...input, id: crypto.randomUUID(), ticketCode, initials: `${input.firstName[0]}.${input.lastName[0]}.`, status: 'waiting',
       arrivalTime: now(), estimatedWait: input.priority === 'red' ? 0 : input.priority === 'orange' ? 12 : input.priority === 'blue' ? 35 : input.priority === 'green' ? 55 : 85,

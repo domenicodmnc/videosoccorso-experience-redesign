@@ -2,7 +2,7 @@ import { Bell, BellRing, CheckCircle2, Info, X } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import type { Patient, PatientStatus } from '../types'
 
-const ENABLED_KEY = 'videosoccorso-demo-notifications'
+const ENABLED_KEY = 'careflow-demo-notifications'
 const notifiedStatuses: PatientStatus[] = ['next', 'called', 'discharge_preparing', 'discharge_ready']
 
 function notificationMessage(patient: Patient) {
@@ -29,7 +29,7 @@ export function PatientNotifications({ patient }: { patient: Patient }) {
     setToast(message)
     const timeout = window.setTimeout(() => setToast(''), 9000)
     if (enabled && typeof Notification !== 'undefined' && Notification.permission === 'granted') {
-      try { new Notification('VideoSoccorso', { body: message, tag: `videosoccorso-${patient.ticketCode}`, icon: '/favicon.ico' }) } catch { /* The in-app notification remains available. */ }
+      try { new Notification('CareFlow', { body: message, tag: `careflow-${patient.ticketCode}`, icon: '/favicon.ico' }) } catch { /* The in-app notification remains available. */ }
     }
     return () => window.clearTimeout(timeout)
   }, [patient.status, patient.room, patient.ticketCode, enabled])

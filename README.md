@@ -1,6 +1,9 @@
-# VideoSoccorso Experience Redesign
+# CareFlow — Healthcare Experience Design
 
-MVP front-end navigabile per esplorare un redesign dell’esperienza informativa del Pronto Soccorso.
+Case study UX di Domenico Di Domenico e MVP front-end navigabile per esplorare un redesign dell’esperienza informativa del Pronto Soccorso.
+
+- Portfolio: https://domenicodmnc.github.io/
+- LinkedIn: https://www.linkedin.com/in/domenico-di-domenico/
 
 ## Avvio
 
@@ -48,4 +51,4 @@ Il progetto include anche un workflow GitHub Actions dedicato a GitHub Pages. La
 2. In **Build and deployment**, seleziona **GitHub Actions** come sorgente.
 3. Esegui il workflow **Deploy to GitHub Pages** oppure pubblica un nuovo commit su `main`.
 
-Il sito sarà disponibile su `https://domenicodmnc.github.io/videosoccorso-experience-redesign/`.
+Il sito sarà disponibile nell’URL GitHub Pages generato dalla repository.

@@ -31,7 +31,7 @@ const seeds: Seed[] = [
 
 const reasons = ['Dolore toracico', 'Difficoltà respiratoria', 'Trauma arto superiore', 'Dolore addominale', 'Cefalea persistente', 'Ferita superficiale']
 export const DEMO_PATIENTS: Patient[] = seeds.map(([code, firstName, lastName, age, priority, status, arrivalTime, estimatedWait, room, notes], index) => ({
-  id: String(index + 1), ticketCode: /^[A-Z]/.test(code) ? code : `VS-${code}`, firstName, lastName,
+  id: String(index + 1), ticketCode: /^[A-Z]/.test(code) ? code : `CF-${code}`, firstName, lastName,
   initials: `${firstName[0]}.${lastName[0]}.`, age, reason: reasons[index % reasons.length], notes: notes || 'Nessuna nota',
   priority, status, arrivalTime, estimatedWait, room, lastUpdate: '10:52',
 }))
