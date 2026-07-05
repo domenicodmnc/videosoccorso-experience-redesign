@@ -2,8 +2,8 @@
 
 Case study UX di Domenico Di Domenico e MVP front-end navigabile per esplorare un redesign dell’esperienza informativa del Pronto Soccorso.
 
-- Portfolio: https://domenicodmnc.github.io/
-- LinkedIn: https://www.linkedin.com/in/domenico-di-domenico/
+- Portfolio: https://domenicodmnc.framer.ai/
+- LinkedIn: https://www.linkedin.com/in/domenicodmnc/
 
 ## Avvio
 
